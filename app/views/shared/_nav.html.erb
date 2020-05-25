@@ -30,18 +30,9 @@
         <i class="fas fa-user-circle"></i>
       </a>
       <div class="dropdown-menu dropdown-menu-right dropdown-primary" aria-labelledby="navbarDropdownMenuLink">
-        <button class="dropdown-item" type="button"
-                onclick="location.href=''">
-        マイページ
-        </button>
-        <div class="dropdown-divider"></div>
-        <button form="logout-button" class="dropdown-item" type="submit">
-          ログアウト
-        </button>
+        <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: 'dropdown-item' %>
       </div>
     </li>
-    <form id="logout-button" method="POST" action="">
-    </form>
     <!-- Dropdown -->
     <% end %>
 
