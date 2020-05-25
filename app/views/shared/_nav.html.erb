@@ -4,18 +4,25 @@
 
   <ul class="navbar-nav ml-auto">
 
+    <% unless user_signed_in? %>
     <li class="nav-item">
       <a class="nav-link" href="">ユーザー登録</a>
     </li>
+    <% end %>
 
+    <% unless user_signed_in? %>
     <li class="nav-item">
       <a class="nav-link" href="">ログイン</a>
     </li>
+    <% end %>
 
+    <% if user_signed_in? %>
     <li class="nav-item">
       <a class="nav-link" href=""><i class="fas fa-pen mr-1"></i>投稿する</a>
     </li>
+    <% end %>
 
+    <% if user_signed_in? %>
     <!-- Dropdown -->
     <li class="nav-item dropdown">
       <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown"
@@ -36,6 +43,7 @@
     <form id="logout-button" method="POST" action="">
     </form>
     <!-- Dropdown -->
+    <% end %>
 
   </ul>
 
