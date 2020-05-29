@@ -4,18 +4,25 @@
 
   <ul class="navbar-nav ml-auto">
 
+    <% unless user_signed_in? %>
     <li class="nav-item">
-      <a class="nav-link" href="">ユーザー登録</a>
+      <%= link_to "ユーザー登録", new_user_registration_path(), class: "nav-link" %>
     </li>
+    <% end %>
 
+    <% unless user_signed_in? %>
     <li class="nav-item">
-      <a class="nav-link" href="">ログイン</a>
+      <%= link_to "ログイン", new_user_session_path(), class: "nav-link" %>
     </li>
+    <% end %>
 
+    <% if user_signed_in? %>
     <li class="nav-item">
       <a class="nav-link" href=""><i class="fas fa-pen mr-1"></i>投稿する</a>
     </li>
+    <% end %>
 
+    <% if user_signed_in? %>
     <!-- Dropdown -->
     <li class="nav-item dropdown">
       <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown"
@@ -23,19 +30,11 @@
         <i class="fas fa-user-circle"></i>
       </a>
       <div class="dropdown-menu dropdown-menu-right dropdown-primary" aria-labelledby="navbarDropdownMenuLink">
-        <button class="dropdown-item" type="button"
-                onclick="location.href=''">
-        マイページ
-        </button>
-        <div class="dropdown-divider"></div>
-        <button form="logout-button" class="dropdown-item" type="submit">
-          ログアウト
-        </button>
+        <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: 'dropdown-item' %>
       </div>
     </li>
-    <form id="logout-button" method="POST" action="">
-    </form>
     <!-- Dropdown -->
+    <% end %>
 
   </ul>
 
