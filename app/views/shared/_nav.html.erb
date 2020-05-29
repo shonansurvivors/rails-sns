@@ -12,7 +12,7 @@
 
     <% unless user_signed_in? %>
     <li class="nav-item">
-      <a class="nav-link" href="">ログイン</a>
+      <%= link_to "ログイン", new_user_session_path(), class: "nav-link" %>
     </li>
     <% end %>
 
