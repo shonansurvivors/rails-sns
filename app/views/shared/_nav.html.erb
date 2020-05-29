@@ -18,7 +18,9 @@
 
     <% if user_signed_in? %>
     <li class="nav-item">
-      <a class="nav-link" href=""><i class="fas fa-pen mr-1"></i>投稿する</a>
+      <%= link_to(new_article_path, class: "nav-link") do %>
+        <i class="fas fa-pen mr-1"></i>投稿する
+      <% end %>
     </li>
     <% end %>
 
