@@ -2,6 +2,7 @@ class ArticlesController < ApplicationController
   #Todo: before_action
 
   def index
+    @articles = Article.includes(:user).order(id: "DESC")
   end
 
   def new
